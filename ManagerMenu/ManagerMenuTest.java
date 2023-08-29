@@ -15,8 +15,7 @@ public class ManagerMenuTest {
 		
 		System.out.println("==== main() 시작 =======");
 
-		menu.showManagerMenu();
-
+		menu.runningManager();
 
 		System.out.println("==== main() 끝 =======");
 
