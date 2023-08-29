@@ -15,7 +15,7 @@ public class SalesDAO {
 	// SELECT : 전체 매출데이터 조회
 	public List<SalesVO> selectAll() {
 		List<SalesVO> list = null;
-		Connection conn =null;
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -61,10 +61,10 @@ public class SalesDAO {
 		try {
 			conn = CommonJDBCUtil.getConnection();
 			StringBuilder sql = new StringBuilder(); 
-			sql.append("SELECT TO_CHAR(S.ORDERDATE, 'YYYY-MM-DD') AS DAY"
+			sql.append("SELECT TO_CHAR(S.ORDERDATE, 'YYYY/MM/DD') AS DAY"
 					+ ", SUM(S.TOTALPRICE) AS DAILY_SALES ");
 			sql.append("  FROM SALES S ");
-			sql.append(" GROUP BY TO_CHAR(S.ORDERDATE, 'YYYY-MM-DD') ");
+			sql.append(" GROUP BY TO_CHAR(S.ORDERDATE, 'YYYY/MM/DD') ");
 
 			pstmt = conn.prepareStatement(sql.toString());
 			rs = pstmt.executeQuery();
@@ -98,10 +98,10 @@ public class SalesDAO {
 		try {
 			conn = CommonJDBCUtil.getConnection();
 			StringBuilder sql = new StringBuilder(); 
-			sql.append("SELECT TO_CHAR(S.ORDERDATE, 'YYYY-MM') AS MONTH"
+			sql.append("SELECT TO_CHAR(S.ORDERDATE, 'YYYY/MM') AS MONTH"
 					+ ", SUM(S.TOTALPRICE) AS MONTH_SALES ");
 			sql.append("  FROM SALES S ");
-			sql.append(" GROUP BY TO_CHAR(S.ORDERDATE, 'YYYY-MM') ");
+			sql.append(" GROUP BY TO_CHAR(S.ORDERDATE, 'YYYY/MM') ");
 
 			pstmt = conn.prepareStatement(sql.toString());
 			rs = pstmt.executeQuery();

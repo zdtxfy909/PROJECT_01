@@ -2,7 +2,7 @@ package com.mystudy.cafetest.dao;
 
 import java.util.List;
 
-import com.mystudy.cafetest.vo.OrdersdetailVO;
+import com.mystudy.cafetest.vo.JoinedDataVO;
 
 public class OrdersdetailDAO_Test {
 
@@ -10,11 +10,10 @@ public class OrdersdetailDAO_Test {
 
 		OrdersdetailDAO dao = new OrdersdetailDAO();
 		//1.주문목록조회
-		List<OrdersdetailVO> list = dao.selectAll();
+		List<JoinedDataVO> list = dao.selectAll();
 		
-		for (OrdersdetailVO vo : list) {
+		for (JoinedDataVO vo : list) {
 			System.out.println(vo);
-			
 		}
 		
 		
